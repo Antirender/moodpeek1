@@ -196,4 +196,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Open-Meteo API for free weather data
 - D3.js community for visualization examples
 - [Pico CSS](https://picocss.com) for the minimal CSS framework
-- The a11y community for accessibility guidelines and best practices
+- The a11y community for accessibility guidelines and best practices# moodpeek1
