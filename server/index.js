@@ -21,7 +21,7 @@ app.use('/api/entries', entriesRouter);
 app.use('/api/insights', insightsRouter);
 app.use('/api/images', imagesRouter);
 
-const PORT = process.env.PORT || 5174;
+const PORT = process.env.PORT || 8787;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 async function connectDB() {
