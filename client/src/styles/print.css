@@ -1,0 +1,138 @@
+/* src/styles/print.css */
+/* Print-specific styles for MoodPeek application */
+
+@media print {
+  /* Page setup for A4 with fallback for Letter */
+  @page {
+    size: A4; /* Fallback to Letter: size: Letter; */
+    margin: 12mm;
+  }
+  
+  /* Force light theme for printing */
+  html[data-theme], 
+  html[data-theme="dark"] {
+    color-scheme: light;
+    --bg-color: #ffffff;
+    --text-color: #121212;
+    --border: #e0e0e0;
+    --card-bg: #ffffff;
+    --muted-color: #595959;
+    --primary-color: #1a5fb4;
+    --heading-color: #0f0f0f;
+  }
+  
+  /* Hide elements not needed for printing */
+  nav,
+  nav.container,
+  .button, 
+  button:not(.print-include),
+  .theme-toggle,
+  form,
+  footer,
+  .entry-actions,
+  #bg-premade,
+  .navigation-controls,
+  .topbar-container,
+  .btn-icon {
+    display: none !important;
+  }
+  
+  /* Simplify card styling for print */
+  .card {
+    box-shadow: none !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    background-color: #ffffff !important;
+    color: #121212 !important;
+  }
+  
+  /* Ensure images and charts render properly */
+  img, 
+  svg, 
+  canvas {
+    max-width: 100% !important;
+    break-inside: avoid !important;
+  }
+  
+  /* Prevent breaking inside report cards and sections */
+  .card, 
+  article, 
+  .report-card-item {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 10mm !important;
+  }
+  
+  /* Ensure color fidelity */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Print-specific layout adjustments */
+  .print-one-column .report-grid,
+  .print-one-column .grid,
+  .trends-grid {
+    display: block !important;
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+  
+  .chart-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  /* Simplify badge/tag styling for print */
+  .m-badge, 
+  .tag, 
+  .badge {
+    border: 1px solid #e0e0e0 !important;
+    background: #f9f9f9 !important;
+    color: #121212 !important;
+  }
+  
+  /* Add a nice header for the printed document */
+  #report-print {
+    position: relative;
+  }
+  
+  #report-print::before {
+    content: "MoodPeek Weekly Report";
+    font-size: 20pt;
+    font-weight: bold;
+    margin-bottom: 8mm;
+    display: block;
+    text-align: center;
+  }
+  
+  /* Lists should not break across pages */
+  ul, ol {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  
+  /* Long paragraphs can break across pages if needed */
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* Dark mode overrides for print */
+  .theme-dark {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  
+  .theme-dark .muted, 
+  .theme-dark .text-muted {
+    color: #595959 !important;
+  }
+  
+  .theme-dark .card,
+  .theme-dark article {
+    background: #fff !important;
+    border-color: #e0e0e0 !important;
+  }
+}

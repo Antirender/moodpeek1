@@ -1,0 +1,93 @@
+/* src/styles/mood.css */
+:root{
+  --mood-happy:#16a34a;  /* 绿 */
+  --mood-calm:#0ea5e9;   /* 蓝 */
+  --mood-neutral:#64748b;/* 灰 */
+  --mood-sad:#6366f1;    /* 靛 */
+  --mood-stressed:#e11d48;/* 红 */
+}
+/* 轻量徽章 */
+.m-badge{display:inline-block;padding:.25rem .6rem;border-radius:999px;font-weight:600}
+.m-badge[data-mood="happy"]{color:var(--mood-happy);background:color-mix(in srgb,var(--mood-happy) 15%,transparent)}
+.m-badge[data-mood="calm"]{color:var(--mood-calm);background:color-mix(in srgb,var(--mood-calm) 15%,transparent)}
+.m-badge[data-mood="neutral"]{color:var(--mood-neutral);background:color-mix(in srgb,var(--mood-neutral) 20%,transparent)}
+.m-badge[data-mood="sad"]{color:var(--mood-sad);background:color-mix(in srgb,var(--mood-sad) 15%,transparent)}
+.m-badge[data-mood="stressed"]{color:var(--mood-stressed);background:color-mix(in srgb,var(--mood-stressed) 15%,transparent)}
+
+/* Entry 卡片封面统一规格 */
+.entry-card figure { margin: 0; }
+
+.entry-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius, .5rem);
+  background: color-mix(in srgb, var(--muted) 12%, transparent);
+}
+
+/* Entry cover container for positioning attribution */
+.entry-cover-container {
+  position: relative;
+  width: 100%;
+}
+
+/* For when an image is loading */
+.entry-cover--loading {
+  display: grid;
+  place-items: center;
+  min-height: 140px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.6; }
+}
+
+/* Placeholder shown when no image is available */
+.entry-cover--placeholder {
+  display: grid; 
+  place-items: center;
+  width: 100%;
+  height: clamp(140px, 28vw, 260px);
+  border-radius: var(--radius, .5rem);
+  background: color-mix(in srgb, var(--muted) 12%, transparent);
+}
+
+.entry-cover--placeholder svg,
+.entry-cover--icon svg {
+  width: clamp(72px, 16vw, 140px);
+  height: auto;
+  opacity: .6;
+  color: var(--muted);
+}
+
+/* Unsplash attribution */
+.unsplash-attribution {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  background-color: color-mix(in srgb, var(--surface-1) 80%, transparent);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.unsplash-attribution:hover {
+  opacity: 1;
+}
+
+/* For screen readers only */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

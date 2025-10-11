@@ -1,0 +1,183 @@
+/* responsive.css - Global responsive utilities for MoodPeek */
+
+:root {
+  /* Breakpoints */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
+
+/* Trends layout */
+.trends-container { 
+  max-width: 1100px; 
+  margin-inline: auto; 
+  padding: clamp(12px, 4vw, 24px); 
+}
+
+.trends-grid { 
+  display: grid; 
+  gap: clamp(12px, 2vw, 24px); 
+}
+
+@media (min-width: var(--bp-lg)) { 
+  .trends-grid { 
+    grid-template-columns: 1fr 1fr; 
+  } 
+}
+
+@media (max-width: var(--bp-lg)) { 
+  .trends-grid { 
+    grid-template-columns: 1fr; 
+  } 
+}
+
+.chart-card { 
+  background: var(--pico-card-background-color); 
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: 12px; 
+  padding: clamp(12px, 2vw, 20px); 
+  overflow: hidden;
+  break-inside: avoid; /* Prevent cuts when printing */
+}
+
+.chart-title { 
+  margin: 0 0 8px; 
+  font-size: clamp(16px, 2vw, 20px); 
+}
+
+svg { 
+  display: block; 
+  max-width: 100%; 
+  height: auto; 
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(12px, 4vw, 24px);
+}
+
+/* Grid utilities */
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 2vw, 24px);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 2vw, 24px);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 2vw, 24px);
+}
+
+/* Form actions utility */
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.form-actions button {
+  min-height: 44px;
+  line-height: 44px;
+  padding-inline: 16px;
+}
+
+/* Filters: remove the default fieldset margins from Pico */
+form[aria-labelledby="filters-legend"] fieldset {
+  padding: 20px;     /* add inner padding */
+  --pico-form-element-spacing-horizontal: 0;
+  --pico-form-element-spacing-vertical: 0;
+}
+
+/* inner grid spacing only */
+form[aria-labelledby="filters-legend"] .grid { 
+  gap: 12px;
+  margin-bottom: 4px;  
+}
+
+/* Entry card image container */
+.entry-card figure {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.entry-card figure img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Report grid responsive layout */
+.report-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 3vw, 24px);
+}
+
+/* Responsive breakpoints */
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .report-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .entry-actions {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .form-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 8px;
+  }
+  
+  nav a {
+    padding: 8px !important;
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Print styles */
+@media print {
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    break-inside: avoid;
+  }
+}

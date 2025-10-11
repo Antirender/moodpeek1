@@ -1,0 +1,23 @@
+/* Custom styles to supplement Pico.css */
+
+main {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Add custom spacing */
+section + section {
+  margin-top: 2rem;
+}
+
+/* Ensure full height for app layout */
+body > #root {
+  min-height: 100vh;
+}
+
+/* Style the mood selection in radio inputs */
+fieldset span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

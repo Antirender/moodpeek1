@@ -1,0 +1,287 @@
+/* pico-overrides.css - Override and extend Pico.css */
+
+/* Tag input styles */
+.tag-input-container {
+  margin-bottom: var(--spacing);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  background-color: var(--surface-2);
+  min-height: 2.5rem;
+  align-items: center;
+  cursor: text;
+}
+
+.chips:focus-within {
+  border-color: var(--accent);
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  background-color: color-mix(in srgb, var(--accent) 12%, var(--surface-1));
+  color: var(--text);
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.chip:hover {
+  background-color: color-mix(in srgb, var(--accent) 18%, var(--surface-1));
+}
+
+.chip-remove {
+  margin-left: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+}
+
+.chip-remove:hover {
+  background-color: color-mix(in srgb, var(--muted) 18%, transparent);
+}
+
+.chip-remove:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background-color: color-mix(in srgb, var(--muted) 18%, transparent);
+}
+
+.chip-input {
+  flex: 1;
+  min-width: 5rem;
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  margin: 0;
+  outline: none;
+  color: var(--text);
+}
+
+.chip-input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.tag-feedback-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.tag-hint {
+  color: var(--form-element-invalid-color);
+  font-size: 0.875rem;
+}
+
+.tag-counter {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.tag-limit-reached {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* Tag input instruction text */
+.tag-instruction {
+  font-size: 0.85em;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+/* Focus indicator for the chips container */
+.chips:focus-within {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+/* High contrast focus styles for keyboard navigation */
+.chip-input:focus {
+  box-shadow: none;
+}
+
+/* Improve visibility of disabled state */
+.chip-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Error message styling */
+.error-message {
+  color: var(--danger);
+  background-color: color-mix(in srgb, var(--danger) 10%, var(--surface-1));
+  border-left: 4px solid var(--danger);
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+  border-radius: var(--border-radius);
+}
+
+/* 
+  CSS Variables for consistent theming across light and dark modes 
+  Following the design system pattern where we define semantic variables
+  that point to color values rather than using colors directly
+*/
+:root {
+  /* Base colors */
+  --surface-1: var(--pico-card-background-color);
+  --surface-2: color-mix(in srgb, var(--pico-card-background-color) 92%, var(--pico-muted-border-color) 8%);
+  --text: var(--pico-color);
+  --muted: var(--pico-muted-color);
+  --border: var(--pico-form-element-border-color);
+  --accent: var(--pico-primary);
+  --danger: var(--pico-del-color);
+  
+  /* RGB color values for alpha transparency */
+  --primary-rgb: 51, 122, 183;  /* This is an approximation, replace with the actual RGB */
+  --danger-rgb: 220, 53, 69; /* Approximation for the error color */
+  
+  /* Button styles */
+  --btn-edit: var(--accent);
+  --btn-delete: var(--danger);
+}
+
+/* 
+  Dark mode specific overrides 
+  Pico CSS handles most dark mode variables, we just need to adjust a few
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Fine-tune dark mode */
+    --muted: var(--pico-muted-color);
+    
+    /* Ensure proper color mixing in dark mode */
+    --surface-2: color-mix(in srgb, var(--pico-card-background-color) 92%, var(--pico-muted-border-color) 8%);
+  }
+}
+
+/* Global focus styles for better accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.entry-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.icon-btn:hover {
+  transform: translateY(-1px);
+}
+
+.icon-btn:active {
+  transform: translateY(0);
+}
+
+.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.icon-btn.edit {
+  color: var(--pico-contrast);
+  background-color: var(--accent);
+}
+
+.icon-btn.edit:hover {
+  background-color: var(--accent-hover);
+}
+
+.icon-btn.edit:active {
+  background-color: var(--accent-hover);
+  transform: scale(0.98);
+}
+
+.icon-btn.edit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.icon-btn.delete {
+  color: var(--pico-contrast);
+  background-color: var(--danger);
+}
+
+.icon-btn.delete:hover {
+  background-color: color-mix(in srgb, black 10%, var(--danger));
+}
+
+.icon-btn.delete:active {
+  background-color: color-mix(in srgb, black 15%, var(--danger));
+  transform: scale(0.98);
+}
+
+.icon-btn.delete:focus-visible {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
+.icon-btn svg {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.icon-18 {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-20 {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tags container for entry cards */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoodPeek</title>
+    <style>
+      /* Mobile menu styles for small screens */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        z-index: 1000;
+      }
+      .mobile-menu details {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      .mobile-menu summary {
+        padding: 10px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        cursor: pointer;
+      }
+      .mobile-menu summary::marker {
+        display: none;
+      }
+      .mobile-menu summary::-webkit-details-marker {
+        display: none;
+      }
+      .menu-content {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 10px;
+        min-width: 150px;
+      }
+      @media (min-width: 768px) {
+        .mobile-menu {
+          display: none; /* Hide mobile menu on larger screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- React app root - don't modify this -->
+    <div id="root"></div>
+    
+    <!-- Mobile menu using native details/summary -->
+    <div class="mobile-menu">
+      <details>
+        <summary>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </summary>
+        <div class="menu-content">
+          <div style="padding: 8px; font-weight: bold;">Menu</div>
+          <a href="/entries" style="display: block; padding: 8px; text-decoration: none;">Entries</a>
+          <a href="/trends" style="display: block; padding: 8px; text-decoration: none;">Trends</a>
+          <a href="/report" style="display: block; padding: 8px; text-decoration: none;">Report</a>
+        </div>
+      </details>
+    </div>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

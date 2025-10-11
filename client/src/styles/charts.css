@@ -1,0 +1,197 @@
+/* Chart Component Styles */
+/* Global styles for D3 charts to ensure axis labels and text are visible */
+
+.chart-card {
+  position: relative;
+  overflow: visible; /* Allow axes to overflow if needed */
+}
+
+.chart-card svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* D3 Axis Styles - Ensure visibility across themes */
+.chart svg .tick text {
+  font-size: 12px;
+  fill: currentColor;
+  font-family: inherit;
+}
+
+.chart svg text.axis-title,
+.chart svg text.axis-label {
+  font-weight: 600;
+  font-size: 14px;
+  fill: currentColor;
+  font-family: inherit;
+}
+
+.chart svg .axis path,
+.chart svg .axis line {
+  stroke: var(--pico-muted-border-color);
+  stroke-width: 1px;
+}
+
+/* Mobile: smaller fonts */
+@media (max-width: 768px) {
+  .chart svg .tick text {
+    font-size: 11px;
+  }
+  
+  .chart svg text.axis-title,
+  .chart svg text.axis-label {
+    font-size: 12px;
+  }
+}
+
+/* Brighten axis labels in dark mode for better readability */
+@media (prefers-color-scheme: dark) {
+  .chart svg .axis text,
+  .chart svg text.axis-title,
+  .chart svg text.axis-label,
+  .chart svg .tick text {
+    fill: rgba(255, 255, 255, 0.85);
+  }
+  
+  .chart svg .axis path,
+  .chart svg .axis line {
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+  
+  .chart svg .grid line {
+    stroke: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Grid lines */
+.chart-card svg .grid line {
+  stroke: var(--pico-muted-border-color);
+  stroke-opacity: 0.2;
+  shape-rendering: crispEdges;
+}
+
+.chart-card svg .grid path {
+  stroke-width: 0;
+}
+
+/* Chart elements */
+.chart-card svg .line {
+  fill: none;
+  stroke: var(--pico-primary);
+  stroke-width: 2px;
+}
+
+.chart-card svg .bar {
+  shape-rendering: crispEdges;
+}
+
+.chart-card svg .center-line {
+  stroke: var(--pico-muted-border-color);
+  stroke-opacity: 0.25;
+}
+
+/* Chart title within card */
+.chart-card .chart-title {
+  margin-bottom: var(--pico-spacing);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Help/Tip Callout */
+.chart-help,
+.entries-help,
+.reports-help {
+  margin-bottom: var(--pico-spacing);
+  padding: var(--pico-spacing);
+  background-color: var(--pico-card-background-color);
+  border-left: 4px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+  font-size: 0.875rem;
+  color: var(--pico-muted-color);
+}
+
+.chart-help strong,
+.entries-help strong,
+.reports-help strong {
+  color: var(--pico-contrast);
+}
+
+.chart-help code,
+.entries-help code,
+.reports-help code {
+  background-color: var(--pico-code-background-color);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-card svg .axis text {
+    font-size: 10px;
+  }
+  
+  .chart-card svg .axis-label {
+    font-size: 11px;
+  }
+  
+  .chart-card .chart-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Trends page specific layout */
+.trends-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--pico-spacing);
+}
+
+.trends-grid {
+  display: grid;
+  gap: calc(var(--pico-spacing) * 1.5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .trends-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Make heatmap span full width on larger screens if desired */
+  .trends-grid .chart-card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Accessibility: High contrast mode support */
+@media (prefers-contrast: high) {
+  .chart-card svg .axis text,
+  .chart-card svg .axis-label {
+    fill: currentColor;
+  }
+  
+  .chart-card svg .axis path,
+  .chart-card svg .axis line {
+    stroke: currentColor;
+  }
+}
+
+/* Print styles for charts */
+@media print {
+  .chart-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .chart-card svg .axis text,
+  .chart-card svg .axis-label {
+    fill: #000;
+  }
+  
+  .chart-card svg .axis path,
+  .chart-card svg .axis line {
+    stroke: #000;
+  }
+}
