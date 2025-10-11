@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from "react";
 import useSWR from "swr";
 import { fetchJSON } from "../lib/http";
-import html2canvas from "html2canvas";
 import "../styles/report.css";
 
 /**
