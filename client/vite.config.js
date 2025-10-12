@@ -9,7 +9,7 @@ export default defineConfig({
       '/api': {
         target: 'https://moodpeek1.onrender.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       }
     }
   }
