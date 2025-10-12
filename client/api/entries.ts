@@ -1,7 +1,7 @@
 import useSWR, { mutate } from 'swr';
 import { Entry } from '../types';
 
-const API_URL = import.meta.env.VITE_API_BASE || 'http://localhost:5174/api';
+const API_URL = import.meta.env.VITE_API_BASE || 'https://moodpeek1.onrender.com/api';
 
 // Reusable fetch function with error handling
 const fetcher = async (url: string) => {
