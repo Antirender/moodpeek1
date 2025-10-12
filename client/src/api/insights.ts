@@ -1,7 +1,7 @@
 // src/api/insights.ts
 import useSWR from 'swr';
 
-const API_URL = 'http://localhost:5174/api/insights';
+const API_URL = `${import.meta.env.VITE_API_BASE || 'http://localhost:5174/api'}/insights`;
 
 /**
  * Fetch weekly insights for a given start date

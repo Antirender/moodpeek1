@@ -52,8 +52,7 @@ function ReportCard() {
       });
       
       // Fetch debug data to verify server found entries
-      fetch(`/api/insights/weekly/debug?start=${start}`)
-        .then(res => res.json())
+      fetchJSON(`/api/insights/weekly/debug?start=${start}`)
         .then(debug => {
           console.log('Debug data:', debug);
           if (debug.found > 0 && (!data.moodDistribution || Object.keys(data.moodDistribution).length === 0)) {
