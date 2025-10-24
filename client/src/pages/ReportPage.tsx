@@ -7,6 +7,9 @@ import ReportsHelp from '../components/ReportsHelp';
 import { useWeeklyInsights, formatDateForAPI } from '../api/insights';
 import { formatDate } from '../components/charts/utils';
 import '../styles/charts.css';
+// AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+// Reference: https://chatgpt.com/share/68fb843c-14d0-800c-9556-ae9ce9a8c1ed
+// Add/remove/refine more details by myself
 
 export default function ReportPage() {
   // State for selected week
