@@ -12,7 +12,11 @@ export default function TrendsPage() {
   
   if (error) return <article className="contrast"><p>read/fetch error</p></article>;
   if (isLoading || !data) return <progress />;
-  
+  /**
+ * AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+ * Reference: https://chatgpt.com/share/68faee5b-180c-800c-9ff2-b877d37f3f51
+ * Add/remove/refine more details by myself
+ */
   return (
     <main>
       <div className="trends-container">
