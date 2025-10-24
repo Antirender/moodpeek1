@@ -112,7 +112,12 @@ export default function HeatmapTempMood({ data, id = "heatmap-temp-mood", ...pro
       .append('rect')
       .attr('width', innerW)
       .attr('height', innerH);
-    
+    /**
+     * AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+     * Reference: https://chatgpt.com/share/68fb76e7-818c-800c-ab22-cf2b9d53238b
+     * Topic: d3 chart usage, const patterns, and drawing small boxes in SVG
+     */
+
     // Create root group for everything - initially positioned with base margin
     const root = svg.append('g')
       .attr('class', 'root')
