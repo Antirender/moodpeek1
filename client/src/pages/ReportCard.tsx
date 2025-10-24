@@ -3,7 +3,9 @@ import useSWR from "swr";
 import { WeeklyReport } from "../types";
 import { fetchJSON } from "../lib/http";
 import { useRef } from "react";
-
+// AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+// Reference: https://chatgpt.com/share/68fb843c-14d0-800c-9556-ae9ce9a8c1ed
+// Add/remove/refine more details by myself
 const startOfWeek = () => {
   const d = new Date(); 
   const day = (d.getDay() + 6) % 7; 
