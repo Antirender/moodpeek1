@@ -3,6 +3,9 @@ import { entriesApi } from '../api/entries';
 import TagInput from './TagInput';
 
 // Main Entry Form Component
+// AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+// Reference: https://chatgpt.com/share/68fb7b6c-bc20-800c-af73-9729ade1663c
+// Add/remove/refine more details by myself
 function EntryForm({ onSuccess, initialEntry, isEditing = false }) {
   const today = new Date().toISOString().split('T')[0];
   
