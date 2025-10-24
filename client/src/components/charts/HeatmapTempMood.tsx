@@ -65,7 +65,11 @@ export default function HeatmapTempMood({ data, id = "heatmap-temp-mood", ...pro
   }, [cells]);
   
   const yBins = moods;
-  
+  /**
+ * AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+ * Reference: https://chatgpt.com/share/68faee5b-180c-800c-9ff2-b877d37f3f51
+ * Add/remove/refine more details by myself
+ */
   // Create scales with memoization
   const scales = useMemo(() => {
     const x = d3.scaleBand()
