@@ -2,8 +2,11 @@
 import React, { useRef, useEffect } from "react";
 import useSWR from "swr";
 import { fetchJSON } from "../lib/http";
+import html2canvas from "html2canvas";
 import "../styles/report.css";
-
+// AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+// Reference: https://chatgpt.com/share/68fb843c-14d0-800c-9556-ae9ce9a8c1ed
+// Add/remove/refine more details by myself
 /**
  * Get the start of the week in local time format (YYYY-MM-DD)
  * @param {boolean} monday Whether to use Monday as the start of the week (default: true)
@@ -52,7 +55,8 @@ function ReportCard() {
       });
       
       // Fetch debug data to verify server found entries
-      fetchJSON(`/api/insights/weekly/debug?start=${start}`)
+      fetch(`/api/insights/weekly/debug?start=${start}`)
+        .then(res => res.json())
         .then(debug => {
           console.log('Debug data:', debug);
           if (debug.found > 0 && (!data.moodDistribution || Object.keys(data.moodDistribution).length === 0)) {
