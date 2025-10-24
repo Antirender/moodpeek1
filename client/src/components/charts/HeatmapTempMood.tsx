@@ -127,10 +127,10 @@ export default function HeatmapTempMood({ data, id = "heatmap-temp-mood", ...pro
     const axisY = root.append('g')
       .attr('class', 'axis axis-y');
       
-    // Create legend group (positioned below plot area with spacing)
+    // Create legend group (y will be finalized after we measure x tick height)
     const legendG = root.append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(0,${innerH + PAD.legendGap})`);
+      .attr('transform', `translate(0,${innerH})`);
     
     // Draw heatmap cells in plot group
     plot.selectAll("rect.cell")
@@ -160,6 +160,12 @@ export default function HeatmapTempMood({ data, id = "heatmap-temp-mood", ...pro
       .attr("dy", "0.8em")
       .attr("fill", "currentColor")
       .style("font-weight", "500");
+    
+    // Measure x-axis tick height after rotation to avoid overlap with legend
+    const xTickNodes = axisX.selectAll('.tick text').nodes() as SVGTextElement[];
+    const xTickH = xTickNodes.length > 0
+      ? Math.max(...xTickNodes.map((n: SVGTextElement) => n.getBBox().height))
+      : 14; // fallback
       
     // Y-axis with emoji on small screens
     axisY.call(d3.axisLeft(y)
@@ -223,16 +229,16 @@ export default function HeatmapTempMood({ data, id = "heatmap-temp-mood", ...pro
         .attr("stop-color", color(stop));
     });
     
-    const legendGap = 12;
-    const titleGapX = 18;
+  const legendGap = 12; // gap between axis ticks and legend
+  const titleGapX = 18; // additional spacing for axis title below bar
     
     // Draw legend rectangle (color bar)
     const legendBar = legendG.append("rect")
       .attr("class", "gradient")
       .attr("x", 0)
-      .attr("y", 0)
+      .attr("y", 14)
       .attr("width", innerW)
-      .attr("height", PAD.legendBarH)
+      .attr("height", 12)
       .attr("rx", 4)
       .attr("fill", `url(#${gradientId})`);
       
@@ -240,7 +246,7 @@ export default function HeatmapTempMood({ data, id = "heatmap-temp-mood", ...pro
     legendG.append("text")
       .attr("class", "freq")
       .attr("x", innerW / 2)
-      .attr("y", -legendGap)
+      .attr("y", 8)
       .attr("text-anchor", "middle")
       .attr("fill", "currentColor")
       .style("font-size", isSm ? "11px" : "12px")
@@ -251,16 +257,23 @@ export default function HeatmapTempMood({ data, id = "heatmap-temp-mood", ...pro
     legendG.append("text")
       .attr("class", "temp")
       .attr("x", innerW / 2)
-      .attr("y", PAD.legendBarH + titleGapX)
+      .attr("y", 44)
       .attr("text-anchor", "middle")
       .attr("fill", "currentColor")
       .style("font-size", isSm ? "12px" : "13px")
       .style("font-weight", "600")
       .text("Temperature (°C)");
     
-    // Update SVG viewBox with adjusted dimensions
+    // Position the x-axis at the bottom of the plotting area
+    axisX.attr('transform', `translate(0,${innerH})`);
+
+  // Place legend below the x ticks to avoid overlap (added extra padding)
+  const axisLegendGap = 20; // increased gap between x-axis ticks and legend
+  legendG.attr('transform', `translate(0,${innerH + xTickH + axisLegendGap})`);
+
+    // Update SVG viewBox with adjusted dimensions (accounting for tick height & legend block ~48px)
     const finalW = innerW + adjustedMarginL + baseMargin.r;
-    const finalH = innerH + baseMargin.t + baseMargin.b + PAD.legendGap + PAD.legendBarH + titleGapX + 20;
+  const finalH = baseMargin.t + innerH + xTickH + axisLegendGap + 48 + baseMargin.b;
     svg.attr('viewBox', `0 0 ${finalW} ${Math.max(finalH, isSm ? 300 : 360)}`)
       .attr('role', 'img')
       .attr('preserveAspectRatio', 'xMidYMid meet');
