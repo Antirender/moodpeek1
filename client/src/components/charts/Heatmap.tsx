@@ -2,6 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import { Entry } from '../../types';
 import { binTemperatureData, binHumidityData } from './utils';
+/**
+ * AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+ * Reference: https://chatgpt.com/share/68faee5b-180c-800c-9ff2-b877d37f3f51
+ * Add/remove/refine more details by myself
+ */
 
 interface HeatmapProps {
   data: Entry[];
