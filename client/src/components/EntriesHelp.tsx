@@ -7,7 +7,10 @@ interface EntriesHelpProps {
 
 export default function EntriesHelp({ defaultOpen = false }: EntriesHelpProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  
+  // AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+  // Reference: https://chatgpt.com/share/68fae879-9770-800c-b09b-b242fb0d0f1c
+  // Add/remove/refine more details by myself
+
   return (
     <details className="entries-help" open={isOpen}>
       <summary onClick={(e) => {
