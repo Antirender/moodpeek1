@@ -3,6 +3,11 @@ import EntryForm from '../components/EntryForm';
 import EntryList from '../components/EntryList';
 import EntriesHelp from '../components/EntriesHelp';
 import '../styles/charts.css';
+// AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+// Reference: https://chatgpt.com/share/68fb7b6c-bc20-800c-af73-9729ade1663c
+// AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+// Reference: https://chatgpt.com/share/68fae879-9770-800c-b09b-b242fb0d0f1c
+// Add/remove/refine more details by myself
 
 export default function EntriesPage() {
   return (
