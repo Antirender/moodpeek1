@@ -11,7 +11,10 @@ import LocationMeta from './LocationMeta';
 interface EntryListProps {
   onEdit?: (entry: Entry) => void;
 }
-
+// Main Entry Form Component
+// AI Assistance: Content and explanations were generated/refined with ChatGPT (OpenAI, 2025)
+// Reference: https://chatgpt.com/share/68fb7b6c-bc20-800c-af73-9729ade1663c
+// Add/remove/refine more details by myself
 export default function EntryList({ onEdit }: EntryListProps) {
   const [filters, setFilters] = useState<{from?: string; to?: string; mood?: string; city?: string}>({});
   const { entries, isLoading, isError } = useEntries(filters);
