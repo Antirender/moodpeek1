@@ -151,16 +151,6 @@ moodpeek/
 └── package.json            # Root package.json with scripts
 ```
 
-## Screenshots
-
-### Mood Entry Form
-![Mood Entry Form](screenshots/entry-form.png)
-
-### Weekly Report
-![Weekly Report](screenshots/weekly-report.png)
-
-### Trends Visualization
-![Trends Visualization](screenshots/trends.png)
 
 ## Recent Enhancements
 
