@@ -6,14 +6,14 @@ MoodPeek is a full-stack mood tracking application with weather correlation feat
 
 ## Features
 
-- 📝 **Daily Mood Tracking**: Log your mood with contextual information like tags, notes, and location
-- 🌦️ **Automatic Weather Data**: Weather conditions are automatically fetched based on your city
-- 📊 **Data Visualization**: Interactive charts to visualize mood patterns over time
-- 🔍 **Insights Generation**: Weekly reports with mood analysis and tag contributions
-- 🌡️ **Weather Correlation**: Discover how temperature and humidity affect your mood
-- 🌓 **Dark Mode Support**: Automatically adapts to system preferences with dark mode
-- 🖼️ **Unsplash Integration**: Dynamic mood-related images with caching
-- ♿ **Accessibility**: ARIA attributes, keyboard navigation, and screen reader support
+-  **Daily Mood Tracking**: Log your mood with contextual information like tags, notes, and location
+-  **Automatic Weather Data**: Weather conditions are automatically fetched based on your city
+-  **Data Visualization**: Interactive charts to visualize mood patterns over time
+-  **Insights Generation**: Weekly reports with mood analysis and tag contributions
+-  **Weather Correlation**: Discover how temperature and humidity affect your mood
+-  **Dark Mode Support**: Automatically adapts to system preferences with dark mode
+-  **Unsplash Integration**: Dynamic mood-related images with caching
+
 
 ## Tech Stack
 
